@@ -5,9 +5,6 @@ import java.util.Scanner;
 
 public class Degree2 {
     public static boolean isPowerOfTwo(int nu) {
-        //Scanner sc=new Scanner(System.in);
-        //System.out.println("insert the number\n");
-
         while (nu != 1 && nu % 2 == 0) {
             nu = nu / 2;
         }
@@ -23,7 +20,6 @@ public class Degree2 {
         System.out.println("insert the number\n");
         int nu = sc.nextInt();
         System.out.println(isPowerOfTwo(nu));
-
     }
 
 
