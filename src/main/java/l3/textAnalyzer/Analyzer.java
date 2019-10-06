@@ -1,5 +1,7 @@
 package l3.textAnalyzer;
 
+import java.util.Scanner;
+
 public class Analyzer {
     public static void Bol(String text){
 
@@ -19,5 +21,9 @@ public class Analyzer {
         for(int i=0; i<analyses.length; i++){
             System.out.println(analyses[i].analyse(text));
         }
+
+        Scanner sc = new Scanner(System.in);
+        String pas = sc.nextLine();
+
     }
 }

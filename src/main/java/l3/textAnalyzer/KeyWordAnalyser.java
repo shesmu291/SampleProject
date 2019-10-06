@@ -8,13 +8,13 @@ public class KeyWordAnalyser implements Analyse {
 
         for(int i=0; i<text.length(); i++)
         {
-            if(text[i]==keyWord){
-                return false;
-            }
+//            if(text[i]==keyWord){
+//                return false;
+//            }
         }
 
 
-
+        return false;
     }
 
 }

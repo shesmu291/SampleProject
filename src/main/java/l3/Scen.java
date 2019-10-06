@@ -1,7 +1,7 @@
 package l3;
 
 public class Scen {
-    public static main(String[]) {
+    public static void main(String[] args) {
         Student stud = new Student("ALex", 15, 10);
         Teacher teac = new Teacher("Tomarka", 51, "mat");
         teac.teach(stud);
