@@ -3,6 +3,8 @@ package l3_2;
 import com.github.javafaker.Faker;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 public class ArrayListExample {
     public static void main(String[] args) {
@@ -30,5 +32,12 @@ public class ArrayListExample {
             System.out.println("повторение нет");
         }
 
+
+        Set<String>strings=new HashSet<>(list);
+        for (String x : strings) {
+            System.out.println(x);
+
+        }
     }
+
 }
