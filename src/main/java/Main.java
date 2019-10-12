@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -10,7 +13,7 @@ public class Main {
         double db=654.8;//8b
         char c='X';//2b
         boolean b=false;//1b
-        System.out.println(by);
+        //System.out.println(by);
 
     }
 }
