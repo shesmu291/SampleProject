@@ -45,7 +45,11 @@ public class UserService {
     public List<User> getAllusers(){
         return new ArrayList<>(users.values());
     }
-
+    public boolean auth(String login, String password){
+        if(users.containsKey(login)){
+            if(users.get(login)==)
+        }
+    }
 
 
 }
