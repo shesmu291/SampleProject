@@ -17,13 +17,12 @@ public class UserService {
     public User getLogin(String login){
             return users.get(login);
     }
-
     public boolean addUser(User user){
         User userFromMap = users.putIfAbsent(user.getLogin(), user);
         if(userFromMap==null){
-            return true;
-        }else{
             return false;
+        }else{
+            return true;
         }
 
     }
@@ -45,7 +44,6 @@ public class UserService {
     }
     public List<User> getAllusers(){
         return new ArrayList<>(users.values());
-
     }
     public boolean auth(String login, String password) {
         if (users.containsKey(login)) {
@@ -58,6 +56,7 @@ public class UserService {
             return false;
         }
     }
+
 
 
 }

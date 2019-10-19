@@ -1,5 +1,9 @@
 package l4_2.CRUD;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -82,8 +86,31 @@ public class App {
 
 
             }
+
+//        try(FileReader reader = new FileReader("src\\main\\resurs\\res")) {
+////            BufferedReader bufferedReader = new BufferedReader(reader);
+//            Scanner scc = new Scanner(reader);
+//            int o = 0;
+//            while (0 != -1) {
+//
+//                o = reader.read();
+//            }
+//        }catch (IOException e) {
+//            System.out.println(e.getMessage());
+//        }
     }
+
+
+
 }
+
+
+
+
+
+
+
+
 
 
 
