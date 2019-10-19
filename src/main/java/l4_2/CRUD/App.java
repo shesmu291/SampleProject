@@ -1,48 +1,89 @@
 package l4_2.CRUD;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
-    Scanner sc = new Scanner(System.in);
-    UserService userSer = new UserService();
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        UserService userSer = new UserService();
 
-    int comand=0;
-    while(){
+        int comand = -1;
+        String log;
+        String pas;
+        String full;
+        boolean in=false;
         System.out.println("Авторизируйтесь");
-        String login = sc.nextLine();
-        String pass = sc.nextLine();
+        while(in==false) {
+            System.out.println("Логин: ");
+            log = sc.nextLine();
+            System.out.println("Пaроль:");
+            pas = sc.nextLine();
+            if (userSer.auth(log, pas)) {
+                in = true;
+            } else {
+                System.out.println("неверный логин или пароль");
+            }
+        }
+            while (comand != 0) {
+                System.out.println("1)Добавить \n" +
+                            "2) Удалить \n" +
+                            "3) Редактировать \n" +
+                            "4) Просмотреть всех \n" +
+                        "для выхода из системы введите 0 \n");
+                    comand = sc.nextInt();
 
-        if(userSer.auth(login, pass)){
-            System.out.println("1)Добавить" +
-                    "2) Удалить" +
-                    "3) Редактировать" +
-                    "4) Просмотреть всех ");
-            comand=sc.nextInt();
-            switch (comand){
-                case(1):
-                    String log = sc.nextLine();
-                    String pas = sc.nextLine();
-                    String full = sc.nextLine();
-                    User user = new User(log,pas,full);
-                    if(userSer.addUser(user)){
-                        System.out.println("ok");
-                    }else{
-                        System.out.println("такой логин есть");
+                    switch (comand) {
+                        case 1:
+                            System.out.println("Логин:");
+                            log = sc.next();
+                            System.out.println("Пaроль:");
+                            pas = sc.next();
+                            System.out.println("Полное имя: ");
+                            full = sc.next();
+                            User user = new User(log, pas, full);
+                            if (userSer.addUser(user)) {
+                                System.out.println("ok");
+                            } else {
+                                System.out.println("такой логин есть");
+                            }
+                            break;
+                        case 2:
+                            System.out.println("Логин: ");
+                            log = sc.next();
+                            if (userSer.deleteByLogin(log)) {
+                                System.out.println("ok");
+                            } else {
+                                System.out.println("такого пользователя не существует");
+                            }
+                            break;
+                        case 3:
+                            System.out.println("Логин: ");
+                            log = sc.next();
+                            System.out.println("Новый пaроль:");
+                            pas = sc.next();
+                            System.out.println("Новoe имя: ");
+                            full = sc.next();
+                            User users = new User(log, pas, full);
+                            if (userSer.editUser(users)) {
+                                System.out.println("ok");
+                            } else {
+                                System.out.println("такого пользователя не существует");
+                            }
+                            break;
+                        case 4:
+                            List<User> allUsers = userSer.getAllusers();
+                            for (User x : allUsers) {
+                                System.out.println(x.getLogin()+"  "+x.getPassword()+"  "+x.getFullName());
+                            }
+                            break;
+
                     }
-                    break;
-                case(2):
-                     log = sc.nextLine();
-                    userSer.deleteByLogin(log);
-                    break;
-                case(3):
-                    String log = sc.nextLine();
-                    String pas = sc.nextLine();
-                    String full = sc.nextLine();
-                    User user = new User(log,pas,full);
-                    userSer.editUser()
 
 
             }
-
     }
 }
+
+
+
