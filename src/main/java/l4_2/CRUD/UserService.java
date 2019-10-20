@@ -7,11 +7,10 @@ import java.util.Map;
 
 public class UserService {
     private Map<String, User> users;
+    private final String PATH_TO_FILA = "src\\main\\java\\l4_2\\CRUD\\users";
 
     public UserService() {
-        users = new HashMap<>();
-        User adminUs= new User ("admin", "adminPas","adminAa");
-        users.put("admin",adminUs );
+        users =  FileHelper.readFromFile(PATH_TO_FILA);
 
     }
     public User getLogin(String login){
@@ -25,6 +24,9 @@ public class UserService {
             return true;
         }
 
+    }
+    public void saveData(){
+        FileHelper.saveToFile(PATH_TO_FILA, users);
     }
     public boolean deleteByLogin(String login){
         if(users.containsKey(login)){

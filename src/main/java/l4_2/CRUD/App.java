@@ -35,7 +35,8 @@ public class App {
                             "3) Редактировать \n" +
                             "4) Просмотреть всех \n" +
                         "для выхода из системы введите 0 \n");
-                    comand = sc.nextInt();
+
+                comand = sc.nextInt();
 
                     switch (comand) {
                         case 1:
@@ -84,20 +85,10 @@ public class App {
 
                     }
 
-
+                userSer.saveData();
             }
 
-//        try(FileReader reader = new FileReader("src\\main\\resurs\\res")) {
-////            BufferedReader bufferedReader = new BufferedReader(reader);
-//            Scanner scc = new Scanner(reader);
-//            int o = 0;
-//            while (0 != -1) {
-//
-//                o = reader.read();
-//            }
-//        }catch (IOException e) {
-//            System.out.println(e.getMessage());
-//        }
+
     }
 
 
